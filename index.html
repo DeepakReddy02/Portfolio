@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <link
+<link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/devicon@2.14.0/devicon.min.css"
     rel="stylesheet"
   />
 </head>
 <body>
-  <div class="sidebar" id="sidebar">
+  <div class="sidebar collapsed" id="sidebar">
   <button class="toggle-btn" id="toggle-btn">&#9776;</button>
   <ul class="nav-list">
     <li><a href="#about"><i class="icon">🏠</i><span>About Me</span></a></li>
@@ -27,8 +31,12 @@
 <main>
 <section id="about" class="section">
   <h1>About Me</h1>
-  <p>Hello! I'm a passionate front-end designer with a knack for creating modern and user-friendly interfaces.</p>
-  <a href="resume.pdf" download class="resume-btn">Download Resume</a>
+  <h3>Hi, I'm Deepak Reddy</h3>
+  <p class="dynamic-text">
+    <span id="animated-text"></span>
+  </p>
+  <p>Data Analyst with 3 years of experience transforming and engineering data into strategic business insights. Proven track record of improving operational efficiency, reducing manual processes, and enhancing data integrity through automated pipelines, interactive dashboards, and advanced analytics. Expert in Python, Power BI, Grafana, and Neo4j, with demonstrated ability to drive data-driven decision-making across cross-functional software delivery teams.</p>
+  <a href="Assets\Deepak_Reddy_DataAnalyst_Resume.pdf" target="_blank" class="resume-btn">View Resume</a>
 </section>
 <hr />
 
@@ -36,21 +44,16 @@
   <h1>Work Experience</h1>
   <div class="card-container">
     <div class="card">
-      <h2>Frontend Developer</h2>
-      <p>Company A - Jan 2022 to Present</p>
+      <h2>Data Analyst</h2>
+      <p>Cognizant Technology Solutions - Aug 2022 to Present</p>
       <ul class="details-list">
-        <li>Developed responsive web applications using HTML, CSS, and JavaScript.</li>
-        <li>Collaborated with designers to implement modern UI/UX designs.</li>
-        <li>Optimized website performance, reducing load times by 30%.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>UI Designer</h2>
-      <p>Company B - Jan 2020 to Dec 2021</p>
-      <ul class="details-list">
-        <li>Designed user-friendly interfaces for web and mobile applications.</li>
-        <li>Created wireframes and prototypes using Figma and Adobe XD.</li>
-        <li>Worked closely with developers to ensure design consistency.</li>
+        <li>Applied data analysis techniques to extract and analyze data from various sources (CSV, JSON, REST APIs), identifying key trends and providing insights that led to a 14% improvement in process efficiency.</li>
+        <li>Developed and implemented interactive dashboards using data visualization tools like Grafana to track key performance indicators (KPIs), automating reporting processes and reducing manual effort by 40%.</li>
+        <li>Automated ETL processes for data cleaning and transformation using scripting languages such as Python (with Pandas), reduced processing time by 40% and ensured data quality.</li>
+        <li>Analyzed GitHub branching patterns across 30+ repositories, identifying merge bottlenecks and improving branch integrity by 35%.</li>
+        <li>Managed the planning, execution, and reporting of ARES software quality metrics, leveraging Neo4j for data analysis and Grafana for visualization, contributing to a 15% improvement in project delivery timelines.</li>
+        <li>Examined patterns and trends in large datasets across multiple sources, identifying key bottlenecks and contributing to a 30% improvement in data integrity.</li>
+        <li>Optimized key lead time metrics by 12% through in-depth analysis of relevant data points and providing data-driven recommendations for process optimization.</li>
       </ul>
     </div>
   </div>
@@ -61,19 +64,29 @@
   <h1>Personal Projects</h1>
   <div class="card-container">
     <div class="card">
-      <h2><a href="https://github.com/yourproject1" target="_blank">Project 1</a></h2>
+      <h2>Yelp Data analytics</h2>
+      <a href="https://www.kaggle.com/code/adr2001/yelp-data-analysis" target="_blank">
+      <i class="fab fa-kaggle"></i>
+      </a>
+      <a href="https://github.com/DeepakReddy02/Yelp-data-Analytics" target="_blank">
+      <i class="fab fa-github"></i>
+      </a>
       <ul class="details-list">
-        <li>Built a modern portfolio website using HTML, CSS, and JavaScript.</li>
-        <li>Implemented a responsive design to ensure compatibility across devices.</li>
-        <li>Added animations and interactivity for an engaging user experience.</li>
+        <li>Engineered data processing pipelines using PySpark to handle large-scale Yelp business datasets with 1 million records, optimizing query performance and reducing processing time by 60% through distributed computing frameworks.</li>
+        <li>Conducted comprehensive market analysis across 50+ cities and 3 business categories, identifying 12 underserved markets with high growth potential through statistical correlation analysis.</li>
+        <li>Automated workflows for data cleaning and standardization using regex patterns, reducing data inconsistencies by 70% and ensuring high-quality datasets for downstream analysis.</li>
       </ul>
     </div>
     <div class="card">
-      <h2><a href="https://github.com/yourproject2" target="_blank">Project 2</a></h2>
+      <h2><a href="https://github.com/yourproject2" target="_blank">CRM Data analytics</a></h2>
       <ul class="details-list">
-        <li>Developed a weather app using OpenWeatherMap API and vanilla JavaScript.</li>
-        <li>Integrated real-time weather updates and location-based search.</li>
-        <li>Improved user experience with a clean and intuitive interface.</li>
+        <li>will add points soon</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2><a href="https://github.com/yourproject2" target="_blank">Formula 1 Dashborad</a></h2>
+      <ul class="details-list">
+        <li>will add points soon</li>
       </ul>
     </div>
   </div>
@@ -83,47 +96,76 @@
   <section id="skills" class="section">
     <h1>Skills</h1>
     <div class="pill-container">
-      <span class="pill">HTML</span>
-      <span class="pill">CSS</span>
-      <span class="pill">JavaScript</span>
-      <span class="pill">React</span>
-      <span class="pill">Figma</span>
+    <span class="pill"><i class="fas fa-database"></i> SQL</span>
+    <span class="pill"><i class="devicon-neo4j-plain"></i> Neo4j</span>
+    <span class="pill"><i class="devicon-python-plain"></i> Python</span>
+    <span class="pill"><i class="fas fa-chart-line"></i> Power BI</span>
+    <span class="pill"><i class="fas fa-chart-pie"></i> Grafana</span>
+    <span class="pill"><i class="fas fa-file-excel"></i> Microsoft Excel</span>
+    <span class="pill"><i class="devicon-mysql-plain"></i> MySQL</span>
+    <span class="pill"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+    <span class="pill"><i class="devicon-mongodb-plain"></i> MongoDB</span>
+    <span class="pill"><i class="devicon-microsoftsqlserver-plain"></i> Microsoft SQL Server</span>
+    <span class="pill"><i class="devicon-pandas-plain"></i> Pandas</span>
+    <span class="pill"><i class="fas fa-chart-bar"></i> Matplotlib</span>
+    <span class="pill"><i class="fas fa-chart-area"></i> Seaborn</span>
+    <span class="pill"><i class="fas fa-bolt"></i> PySpark</span>
+    <span class="pill"><i class="fas fa-calculator"></i> Numpy</span>
+    <span class="pill"><i class="fas fa-tachometer-alt"></i> Dashboard Development</span>
+    <span class="pill"><i class="fas fa-broom"></i> Data Cleaning</span>
+    <span class="pill"><i class="fas fa-project-diagram"></i> Data Modeling</span>
+    <span class="pill"><i class="fas fa-tools"></i> Data Manipulation</span>
+    <span class="pill"><i class="fas fa-search"></i> Data Profiling</span>
+    <span class="pill"><i class="fas fa-vial"></i> A/B Testing</span>
+    <span class="pill"><i class="fas fa-comments"></i> Stakeholder Communication</span>
+    <span class="pill"><i class="fas fa-chart-line"></i> Statistical Analysis</span>
+    <span class="pill"><i class="fas fa-chart-bar"></i> Data Visualization</span>
+    <span class="pill"><i class="fas fa-chart-pie"></i> Data Analysis</span>
+    <span class="pill"><i class="fas fa-exchange-alt"></i> Data Transformation</span>
     </div>
   </section>
   <hr />
 
 <section id="certifications" class="section">
   <h1>Certifications</h1>
-  <div class="certifications-list">
-    <a href="https://certification-link.com" target="_blank">Certification 1</a>
-    <a href="https://certification-link.com" target="_blank">Certification 2</a>
-  </div>
+    <div class="certifications-list card">
+      <a href="https://learn.microsoft.com/en-us/users/deepakreddy-7486/credentials/6c7aa562362c20fa" target="_blank">Microsoft Certified: Power BI Data Analyst Associate (PL-300)</a>
+      <a href="https://graphacademy.neo4j.com/c/1edc7d7e-53f9-4a32-aede-22fb9f663efd/" target="_blank">Neo4j Certified Professional</a>
+      <a href="Assets\AWS Certified Cloud Practitioner certificate.pdf" target="_blank">AWS Cloud Practitioner (CLF-C01)</a>
+      <a href="https://learn.microsoft.com/api/credentials/share/en-us/DEEPAKREDDY-7486/A54F7993C13CFE65?sharingId=EFF0362C7ED97661" target="_blank">Microsoft Certified: Azure Data Fundamentals (DP-900)</a>
+      <a href="https://learn.microsoft.com/api/credentials/share/en-us/DEEPAKREDDY-7486/3F2A00E605FBB6F4?sharingId=EFF0362C7ED97661" target="_blank">Microsoft Certified: Azure Fundamentals (AZ-900)</a>
+    </div>
 </section>
   <hr />
 
   <section id="education" class="section">
     <h1>Education</h1>
-    <p>Bachelor's Degree in Computer Science - XYZ University</p>
+    <div class="card">
+      <p>Bachelor's Degree in Information Technology - Velammal Institute of Technology</p>
+      <p>Graduated: 2022</p>
+      <ul class="details-list">
+        <li>Relevant Coursework: Data Structures, Database Management Systems, Software Engineering, Data Analytics,big data</li>
+      </ul>
+    </div>
   </section>
   <hr />
 
 <section id="contact" class="section">
   <h1>Contact</h1>
-  <div class="contact-list">
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">
+  <div class="contact-list card">
+    <a href="www.linkedin.com/in/deepak-reddy-data-analyst" target="_blank">
       <i class="fab fa-linkedin"></i> LinkedIn
     </a>
-    <a href="https://github.com/yourprofile" target="_blank">
-      <i class="fab fa-github"></i> GitHub
+    <a href="tel:+916382625126">
+      <i class="fas fa-phone"></i> +91 6382625126
     </a>
-    <a href="https://kaggle.com/yourprofile" target="_blank">
-      <i class="fab fa-kaggle"></i> Kaggle
+    <a href="mailto:adr022001@gmail.com">
+      <i class="fas fa-envelope"></i>adr022001@gmail.com
     </a>
   </div>
 </section>
 <hr/>
 </main>
-
   <script src="script.js"></script>
 </body>
 </html>

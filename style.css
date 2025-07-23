@@ -23,19 +23,28 @@ hr {
   margin-left: auto;
   margin-right: auto;
 }
-.sidebar {
-  background-color: #1f1f1f;
-  width: 250px;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  transition: width 0.3s ease;
+
+a{
+  text-decoration: none;
 }
 
-.sidebar.collapsed {
-  width: 60px;
+a:hover {
+ color:green
+}
+
+.dynamic-text {
+  font-size: 1.2rem;
+  color: #4caf50;
+  margin-top: 1rem;
+  font-weight: bold;
+  height: 1.5rem; /* Reserve space to prevent layout shift */
+  overflow: hidden;
+}
+
+.dynamic-text #animated-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: blink 0.8s step-end infinite;
 }
 
 .toggle-btn {
@@ -97,7 +106,7 @@ main {
 /* Section Styles */
 .section {
   padding: 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .section {
@@ -105,7 +114,7 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
   box-sizing: border-box;
 }
 
@@ -125,19 +134,41 @@ main {
 }
 
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 1 card → full width */
+.card-container.one-card {
+  grid-template-columns: 1fr;
+}
+
+/* 2 cards → two equal columns */
+.card-container.two-cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 3 or more cards → three equal columns */
+.card-container.three-plus-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* if exactly 4 cards, make the 4th span all columns */
+.card-container.four-cards .card:nth-child(4) {
+  grid-column: 1 / -1;
 }
 
 .card {
   background-color: #1f1f1f;
   border: 1px solid #333;
   border-radius: 8px;
-  padding: 1rem;
-  width: 300px;
+  padding: 2rem; /* Increase padding for larger content */
+  flex: 1 1 calc(100% - 1.5rem); /* Default: 2 cards per row */
   text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100% /* Prevent cards from exceeding the width */
 }
 
 .card h2 a {
@@ -145,13 +176,29 @@ main {
   text-decoration: none;
 }
 
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card h2 {
+  font-size: 1.6rem; /* Increase heading size */
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1rem; /* Adjust paragraph font size */
+  line-height: 1.6; /* Improve readability */
+}
+
+.card ul.details-list {
+  margin-top: 1rem;
+  padding-left:  1.5rem;
+}
+
+.card ul.details-list li {
+  margin-bottom: 0.5rem;
+  color: #cccccc;
 }
 
 .pill-container {
@@ -162,10 +209,19 @@ main {
 }
 
 .pill {
+display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
   background-color: #333;
   border-radius: 20px;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pill i {
+  font-size: 1.2rem; /* Icon size */
 }
 
 .pill {
@@ -247,6 +303,15 @@ main {
   }
 }
 
+@keyframes blink {
+  50% {
+    border-right: 2px solid transparent;
+  }
+  100% {
+    border-right: 2px solid #4caf50;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   main {
@@ -265,11 +330,19 @@ main {
 
   .pill-container {
     flex-direction: column;
-    align-items: center;
+    align-items: left;
   }
 
   .pill {
     margin-bottom: 0.5rem;
+  }
+  .card-container {
+    justify-content: center; /* Center cards on smaller screens */
+  }
+
+  .card {
+    flex: 1 1 100%; /* Full width for smaller screens */
+    max-width: 100%;
   }
 }
 
@@ -278,11 +351,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .certifications-list a {
-  color: #4caf50;
+  color: white;
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.3s ease;
@@ -305,15 +378,15 @@ main {
   text-decoration: none;
   font-size: 1.2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   gap: 0.5rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-list a:hover {
   color: #4caf50;
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 /* Font Awesome Icon Styling */
