@@ -1,20 +1,19 @@
-/* =============================================================================
-       CSS CUSTOM PROPERTIES (Variables)
-       ============================================================================= */
+/*(Variables)*/
     :root {
-      --primary-bg: #0f1419;
-      --secondary-bg: #1a1f29;
-      --card-bg: #242b3d;
-      --accent-color: #00d4aa;
-      --accent-hover: #00b894;
-      --text-primary: #ffffff;
-      --text-secondary: #a0aec0;
-      --text-muted: #718096;
-      --border-color: #2d3748;
-      --shadow-color: rgba(0, 0, 0, 0.3);
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-accent: linear-gradient(135deg, #00d4aa 0%, #007991 100%);
-      
+  --primary-bg:       #12151a;
+  --secondary-bg:     #1c2231;
+  --card-bg:          #242b3d;
+  --accent-color:     #ff6b6b;
+  --accent-hover:     #ee5253;
+  --text-primary:     #ffffff;
+  --text-secondary:   #bcccdc;
+  --text-muted:       #8a97a4;
+  --border-color:     #323a4a;
+  --shadow-color:     rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.05);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent:  linear-gradient(135deg, #ff6b6b 0%, #ff6a88 100%);
+
+
       --sidebar-width: 280px;
       --sidebar-collapsed: 70px;
       --border-radius: 12px;
@@ -22,9 +21,7 @@
       --box-shadow: 0 8px 32px var(--shadow-color);
     }
 
-    /* =============================================================================
-       RESET & BASE STYLES
-       ============================================================================= */
+    /*BASE STYLES*/
     * {
       margin: 0;
       padding: 0;
@@ -44,9 +41,7 @@
       overflow-x: hidden;
     }
 
-    /* =============================================================================
-       LAYOUT SYSTEM
-       ============================================================================= */
+    /*LAYOUT SYSTEM*/
     .app-container {
       display: flex;
       min-height: 100vh;
@@ -188,9 +183,7 @@
       margin: 0 auto;
     }
 
-    /* =============================================================================
-       SECTION COMPONENTS
-       ============================================================================= */
+    /*SECTION COMPONENTS*/
     .section {
       margin-bottom: 4rem;
       opacity: 0;
@@ -228,9 +221,7 @@
       border-radius: 2px;
     }
 
-    /* =============================================================================
-       HERO SECTION
-       ============================================================================= */
+    /*HERO SECTION*/
     .hero {
       padding: 4rem 0;
       text-align: center;
@@ -280,9 +271,7 @@
       line-height: 1.8;
     }
 
-    /* =============================================================================
-       BUTTON COMPONENTS
-       ============================================================================= */
+    /*BUTTON COMPONENTS*/
     .btn {
       display: inline-flex;
       align-items: center;
@@ -320,9 +309,7 @@
       border-color: var(--accent-color);
     }
 
-    /* =============================================================================
-       CARD COMPONENTS
-       ============================================================================= */
+    /*CARD COMPONENTS*/
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -353,9 +340,9 @@
     }
 
     .card:hover {
+      border-color: var(--accent-color);
       transform: translateY(-8px);
       box-shadow: var(--box-shadow);
-      border-color: var(--accent-color);
     }
 
     .card:hover::before {
@@ -392,9 +379,7 @@
       transform: scale(1.2);
     }
 
-    /* =============================================================================
-       SKILLS SECTION
-       ============================================================================= */
+    /*SKILLS SECTION*/
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -441,9 +426,7 @@
       transform: translateY(-2px);
     }
 
-    /* =============================================================================
-       LIST COMPONENTS
-       ============================================================================= */
+    /* LIST COMPONENTS*/
     .custom-list {
       list-style: none;
       margin-top: 1rem;
@@ -465,9 +448,7 @@
       font-size: 0.75rem;
     }
 
-    /* =============================================================================
-       CONTACT SECTION
-       ============================================================================= */
+    /*CONTACT SECTION*/
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -499,9 +480,7 @@
       color: var(--accent-color);
     }
 
-    /* =============================================================================
-       ANIMATIONS
-       ============================================================================= */
+    /*ANIMATIONS*/
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -523,9 +502,7 @@
       50% { transform: translateY(-10px); }
     }
 
-    /* =============================================================================
-       RESPONSIVE DESIGN
-       ============================================================================= */
+    /*RESPONSIVE DESIGN*/
     @media (max-width: 768px) {
       :root {
         --sidebar-width: 100%;
@@ -592,9 +569,7 @@
       }
     }
 
-    /* =============================================================================
-       UTILITY CLASSES
-       ============================================================================= */
+    /*UTILITY CLASSES*/
     .text-center { text-align: center; }
     .text-muted { color: var(--text-muted); }
     .mb-1 { margin-bottom: 1rem; }
@@ -602,7 +577,7 @@
     .mt-2 { margin-top: 2rem; }
     .hidden { display: none; }
 
-    /* Smooth scroll offset for fixed header */
+    /*Smooth scroll offset for fixed header*/
     .section {
       scroll-margin-top: 2rem;
     }
