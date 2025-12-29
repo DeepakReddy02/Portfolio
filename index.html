@@ -9,162 +9,168 @@
 
 <body class="dark">
 
-  <!-- NAVBAR (structure unchanged) -->
-  <header>
-    <nav class="navbar animate fade-down">
-      <div class="container nav-inner">
-        <div class="logo">Your Name</div>
-        <ul class="nav-links">
-          <li><a href="#featured-projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar expanded" id="sidebar">
+    <div class="sidebar-top">
+
+
+      <button class="toggle-btn" id="toggleSidebar" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#hero" class="nav-item"><span class="icon">🏠</span><span class="label">Home</span></a>
+      <a href="#featured-projects" class="nav-item"><span class="icon">📊</span><span class="label">Projects</span></a>
+      <a href="#experience" class="nav-item"><span class="icon">💼</span><span class="label">Experience</span></a>
+      <a href="#skills" class="nav-item"><span class="icon">🛠</span><span class="label">Skills</span></a>
+      <a href="#education" class="nav-item"><span class="icon">🎓</span><span class="label">Education</span></a>
+      <a href="#about" class="nav-item"><span class="icon">👤</span><span class="label">About</span></a>
+      <a href="#contact" class="nav-item"><span class="icon">✉️</span><span class="label">Contact</span></a>
     </nav>
-  </header>
+  </aside>
 
-  <main>
+  <!-- MAIN -->
+  <div class="layout">
+    <main>
 
-    <!-- HERO -->
-    <section id="hero" class="animate fade-up">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1>Data Analyst focused on clear, practical insights</h1>
+      <!-- HERO -->
+      <section id="hero" class="animate">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1>Data Analyst focused on clear, practical insights</h1>
+            <p>I work with SQL, Python, and BI tools to help teams make better decisions from data.</p>
+            <div class="hero-actions">
+              <a href="#featured-projects" class="btn btn-primary">View Projects</a>
+              <a href="resume.pdf" class="btn btn-secondary">Download Resume</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECTS -->
+      <section id="featured-projects">
+        <div class="container">
+          <h2 class="animate">Featured Projects</h2>
+
+          <div class="project-grid">
+            <article class="project-card animate delay-1 hover-card">
+              <h3>Sales Performance Analysis</h3>
+              <p>Analyzed regional sales data to identify revenue trends.</p>
+              <ul class="tech-tags">
+                <li>SQL</li><li>Python</li><li>Power BI</li>
+              </ul>
+              <p class="impact">Improved reporting accuracy by 25 percent.</p>
+            </article>
+
+            <article class="project-card animate delay-2 hover-card">
+              <h3>Customer Retention Study</h3>
+              <p>Explored user behavior to understand churn patterns.</p>
+              <ul class="tech-tags">
+                <li>Python</li><li>Pandas</li><li>SQL</li>
+              </ul>
+              <p class="impact">Identified key retention drivers.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK EXPERIENCE -->
+      <section id="experience" class="section-alt">
+        <div class="container">
+          <h2 class="animate">Work Experience</h2>
+
+          <div class="timeline-card animate delay-1">
+            <h3>Data Analyst</h3>
+            <span class="meta">Company Name | 2022 – Present</span>
+            <ul>
+              <li>Built dashboards used by business and ops teams</li>
+              <li>Wrote complex SQL queries for reporting</li>
+              <li>Worked closely with stakeholders on data needs</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="container">
+          <h2 class="animate">Skills</h2>
+
+          <div class="skills-grid">
+            <div class="skill-card animate delay-1 hover-card">
+              <h3>Analysis and Stats</h3>
+              <div class="pill-group">
+                <span class="pill">Exploratory Analysis</span>
+                <span class="pill">Data Cleaning</span>
+                <span class="pill">Hypothesis Testing</span>
+              </div>
+            </div>
+
+            <div class="skill-card animate delay-2 hover-card">
+              <h3>Tools and Platforms</h3>
+              <div class="pill-group">
+                <span class="pill">SQL</span>
+                <span class="pill">Python</span>
+                <span class="pill">Databricks</span>
+              </div>
+            </div>
+
+            <div class="skill-card animate delay-3 hover-card">
+              <h3>Visualization</h3>
+              <div class="pill-group">
+                <span class="pill">Power BI</span>
+                <span class="pill">Tableau</span>
+                <span class="pill">Matplotlib</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="section-alt">
+        <div class="container">
+          <h2 class="animate">Education</h2>
+
+          <div class="timeline-card animate delay-1">
+            <h3>Bachelor’s Degree in Engineering</h3>
+            <span class="meta">University Name | Year</span>
+            <p>Relevant coursework in statistics, databases, and programming.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section-highlight">
+        <div class="container narrow">
+          <h2 class="animate">About Me</h2>
           <p>
-            I work with SQL, Python, and BI tools to help teams make better decisions from data.
+            I enjoy working with messy data and turning it into something useful.
+            I care about clarity, correctness, and impact.
           </p>
+        </div>
+      </section>
 
-          <div class="hero-actions">
-            <a href="#featured-projects" class="btn btn-primary">View Projects</a>
-            <a href="resume.pdf" class="btn btn-secondary">Download Resume</a>
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container narrow center animate">
+          <h2>Get in Touch</h2>
+          <p>If you want to discuss a role or a project, reach out.</p>
+
+          <div class="contact-actions">
+            <a href="mailto:youremail@example.com" class="btn btn-primary">Email</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <a href="tel:+911234567890" class="btn btn-secondary">Phone</a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FEATURED PROJECTS -->
-    <section id="featured-projects">
-      <div class="container">
-        <h2 class="animate fade-up">Featured Projects</h2>
+    </main>
+  </div>
 
-        <div class="project-grid">
-          <article class="project-card animate fade-up delay-1">
-            <h3>Sales Performance Analysis</h3>
-            <p>Analyzed regional sales data to identify revenue trends.</p>
-
-            <ul class="tech-tags">
-              <li>SQL</li>
-              <li>Python</li>
-              <li>Power BI</li>
-            </ul>
-
-            <p class="impact">Improved reporting accuracy by 25 percent.</p>
-            <a href="#" class="project-link">View case study</a>
-          </article>
-
-          <article class="project-card animate fade-up delay-2">
-            <h3>Customer Retention Study</h3>
-            <p>Explored user behavior to understand churn patterns.</p>
-
-            <ul class="tech-tags">
-              <li>Python</li>
-              <li>Pandas</li>
-              <li>SQL</li>
-            </ul>
-
-            <p class="impact">Identified key retention drivers.</p>
-            <a href="#" class="project-link">View case study</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="container">
-        <h2 class="animate fade-up">Skills</h2>
-
-        <div class="skills-grid">
-          <div class="skill-card animate fade-up delay-1">
-            <h3>Analysis and Stats</h3>
-            <ul>
-              <li>Exploratory analysis</li>
-              <li>Data cleaning</li>
-              <li>Hypothesis testing</li>
-            </ul>
-          </div>
-
-          <div class="skill-card animate fade-up delay-2">
-            <h3>Tools and Platforms</h3>
-            <ul>
-              <li>SQL</li>
-              <li>Python</li>
-              <li>Databricks</li>
-            </ul>
-          </div>
-
-          <div class="skill-card animate fade-up delay-3">
-            <h3>Visualization</h3>
-            <ul>
-              <li>Power BI</li>
-              <li>Tableau</li>
-              <li>Matplotlib</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="animate fade-up">
-      <div class="container narrow">
-        <h2>About Me</h2>
-        <p>
-          I am a data analyst with experience building dashboards, reports,
-          and analysis used by business teams.
-        </p>
-
-        <ul>
-          <li>Strong SQL and Python background</li>
-          <li>Focused on business impact</li>
-          <li>Comfortable with messy data</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- OTHER PROJECTS -->
-    <section id="other-projects">
-      <div class="container">
-        <h2 class="animate fade-up">Other Projects</h2>
-
-        <div class="project-grid small">
-          <article class="project-card animate fade-up delay-1">
-            <h3>API Data Pipeline</h3>
-            <p>Built a pipeline to ingest and clean API data.</p>
-          </article>
-
-          <article class="project-card animate fade-up delay-2">
-            <h3>SQL Reporting Dashboard</h3>
-            <p>Created reusable SQL queries for weekly reports.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="animate fade-up">
-      <div class="container narrow center">
-        <h2>Get in Touch</h2>
-        <p>If you want to discuss a role or a project, reach out.</p>
-
-        <a href="mailto:youremail@example.com" class="btn btn-primary">
-          Contact Me
-        </a>
-      </div>
-    </section>
-
-  </main>
-
+  <script src="script.js"></script>
 </body>
 </html>
