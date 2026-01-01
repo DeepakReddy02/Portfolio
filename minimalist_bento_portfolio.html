@@ -13,13 +13,14 @@
     }
 
     :root {
-      --bg: #0a0a0a;
-      --surface: #151515;
+      --bg: #0a0805;
+      --surface: #1a1410;
       --text: #e5e5e5;
       --text-secondary: #a0a0a0;
-      --accent: #3b82f6;
-      --secondary-section: #1a1a1a;
-      --border: #262626;
+      --accent: #f97316;
+      --accent-secondary: #10b981;
+      --secondary-section: #221510;
+      --border: #2a1f18;
       --shadow: rgba(0, 0, 0, 0.5);
     }
 
@@ -111,7 +112,7 @@
       margin-bottom: 1.5rem;
       min-height: 1.8rem;
       position: relative;
-      background: linear-gradient(90deg, var(--text-secondary) 0%, var(--accent) 50%, var(--text-secondary) 100%);
+      background: linear-gradient(90deg, var(--text-secondary) 0%, var(--accent) 50%, var(--accent-secondary) 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -162,28 +163,38 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent) 0%, #ea580c 100%);
       color: white;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-      background: #0056b3;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.45);
+      background: linear-gradient(135deg, #ea580c 0%, #d64d0a 100%);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
     }
 
     .btn-secondary {
       background: var(--surface);
       color: var(--text);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
+      transition: all 0.3s ease;
     }
 
     .btn-secondary:hover {
       border-color: var(--accent);
-      background: var(--secondary-section);
+      color: var(--accent);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+      background: rgba(249, 115, 22, 0.05);
     }
 
     /* Bento Grid */
@@ -211,14 +222,14 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.15), transparent 80%);
+      background: radial-gradient(circle at 30% 30%, rgba(249, 115, 22, 0.12), transparent 80%);
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
     }
 
     .bento-item:hover {
-      box-shadow: 0 8px 24px var(--shadow), 0 0 30px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 8px 24px var(--shadow), 0 0 30px rgba(249, 115, 22, 0.2);
       transform: translateY(-6px) scale(1.02);
       border-color: var(--accent);
     }
@@ -294,7 +305,7 @@
       content: '•';
       position: absolute;
       left: 0;
-      color: var(--accent);
+      color: var(--accent-secondary);
       font-weight: bold;
     }
 
@@ -363,7 +374,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 100%);
       transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: -1;
       border-radius: 25px;
@@ -373,7 +384,7 @@
       color: white;
       border-color: var(--accent);
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
     }
 
     .skill-tag:hover::before {
@@ -422,7 +433,7 @@
     }
 
     .cert-list a {
-      color: var(--accent);
+      color: var(--accent-secondary);
       text-decoration: none;
       font-size: 0.95rem;
       transition: opacity 0.2s;
@@ -434,9 +445,8 @@
 
     /* Accent Item */
     .accent-item {
-      background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-      color: var(--text);
-      border: 1px solid #2a2a2a;
+      background: linear-gradient(135deg, #2a1f18 0%, #16110b 100%);
+      border: 1px solid #3a2a22;
     }
 
     .accent-item .item-title,
@@ -672,7 +682,7 @@
             <div class="skill-tags">
               <span class="skill-tag">SQL</span>
               <span class="skill-tag">Python</span>
-              <span class="skill-tag">Cypher</span>
+              <span class="skill-tag">Cypher Query Language</span>
               <span class="skill-tag">DAX</span>
               <span class="skill-tag">M-Query</span>
               <span class="skill-tag">Advanced Excel</span>
@@ -694,7 +704,7 @@
               <span class="skill-tag">PostgreSQL</span>
               <span class="skill-tag">Neo4j</span>
               <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">SQL Server</span>
+              <span class="skill-tag">Microsoft SQL Server</span>
             </div>
           </div>
           <div class="skill-category">
@@ -702,7 +712,7 @@
             <div class="skill-tags">
               <span class="skill-tag">GCP BigQuery</span>
               <span class="skill-tag">GCP Looker</span>
-              <span class="skill-tag">Cloud Storage</span>
+              <span class="skill-tag">GCP Cloud Storage</span>
               <span class="skill-tag">AWS Athena</span>
               <span class="skill-tag">AWS S3</span>
               <span class="skill-tag">AWS EMR</span>
