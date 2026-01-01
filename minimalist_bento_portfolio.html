@@ -204,9 +204,44 @@
       overflow: hidden;
     }
 
+    .bento-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.15), transparent 80%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
     .bento-item:hover {
-      box-shadow: 0 8px 24px var(--shadow);
-      transform: translateY(-4px);
+      box-shadow: 0 8px 24px var(--shadow), 0 0 30px rgba(59, 130, 246, 0.2);
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--accent);
+    }
+
+    .bento-item:hover::before {
+      opacity: 1;
+    }
+
+    .bento-item:hover .item-title {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .item-title {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .item-description {
+      transition: color 0.3s ease;
+    }
+
+    .bento-item:hover .item-description {
+      color: var(--text);
     }
 
     /* Grid Sizes */
@@ -526,7 +561,7 @@
     <!-- Header -->
     <header class="header">
       <h1 class="name">Deepak Reddy</h1>
-      <p class="tagline" id="tagline">Data Analyst • Business Intelligence • Data Visualization</p>
+      <p class="tagline">Data Analyst • Business Intelligence • Data Visualization</p>
       <div class="header-actions">
         <a href="Assets/Deepak_Reddy_DataAnalyst_Resume.pdf" target="_blank" class="btn btn-primary">
           <i class="fas fa-download"></i>
@@ -542,7 +577,7 @@
       <div class="bento-item span-12" id="about">
         <h2 class="item-title">About</h2>
         <p class="item-description about-content">
-          Data Analyst with 3 years of experience building scalable data solutions, optimizing SQL queries, that improve business outcomes. Skilled in SQL, Python, PySpark, Power BI, and cloud platforms (AWS, GCP). Proven track record of cutting ETL runtimes by 40% and reducing manual reporting by 40%. Experienced in dashboard development and KPI tracking support decision-making. Certified in Power BI, Neo4j, with a strong focus on process efficiency, and continuous learning.
+          Data Analyst with 3 years of experience building scalable data solutions, optimizing SQL queries that improve business outcomes. Skilled in SQL, Python, PySpark, Power BI, and cloud platforms (AWS, GCP). Proven track record of cutting ETL runtimes by 40% and reducing manual reporting by 40%. Experienced in dashboard development and KPI tracking to support decision-making. Certified in Power BI and Neo4j, with a strong focus on process efficiency and continuous learning.
         </p>
       </div>
 
@@ -551,12 +586,12 @@
         <h2 class="item-title">Experience</h2>
         <div class="item-subtitle">Data Analyst • Cognizant Technology Solutions • Aug 2022 - Present</div>
         <ul class="experience-list">
-          <li>Applied data analysis techniques to extract and analyze data from various sources, identifying key trends and providing insights that led to a 14% improvement in process efficiency</li>
-          <li>Utilized advanced data analysis techniques to extract and analyze structured and semi-structured data from multiple sources (CSV, JSON, REST APIs), uncovering key trends that drove a 14% increase in process efficiency.</li>
           <li>Designed and deployed interactive dashboards using Grafana and Power BI, enabling real-time KPI monitoring and reducing manual reporting workload by 40% through automation.</li>
           <li>Streamlined ETL workflows for data extraction, transformation, and loading using Python (Pandas), reducing data processing time by 40% while enhancing data consistency and reliability.</li>
-          <li>Optimized SQL queries with CTE(Common Table expression) to generate weekly product engagement KPIs, reducing runtime from 1 hour to 20 minutes.</li>
-          <li>Led the end-to-end lifecycle of software quality metric reporting , integrating Neo4j, SQL for based analysis and Power BI for visualization, contributing to a 15% acceleration in project delivery timelines.</li>
+          <li>Mentored a junior analyst on Python automation and Power BI best practices, reducing their ramp-up time by 50% and establishing team coding standards.</li>
+          <li>Optimized SQL queries with CTE (Common Table Expression) to generate weekly product engagement KPIs, reducing runtime from 1 hour to 20 minutes.</li>
+          <li>Led the end-to-end lifecycle of software quality metric reporting, integrating Neo4j and SQL for analysis and Power BI for visualization, contributing to a 15% acceleration in project delivery timelines.</li>
+          <li>Improved release lead time by 12%, which directly reduced downtime risk and improved user experience.</li>
         </ul>
       </div>
 
@@ -602,39 +637,103 @@
         </p>
       </div>
 
+      <!-- Personal Project 4 -->
+      <div class="bento-item span-4">
+        <h3 class="item-title">E-Commerce Analytics</h3>
+        <div class="project-links">
+          <a href="https://github.com/DeepakReddy02/E-Commerce-Analytics" target="_blank" class="project-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="item-description">
+          Analyzed 12.8M records using PySpark, optimizing query performance and reducing processing time by 60%. Applied RFM segmentation and CLV calculation to identify high-value and at-risk customers — top 20% of users generated over 60% of total revenue.
+        </p>
+      </div>
+
+      <!-- Personal Project 5 -->
+      <div class="bento-item span-4">
+        <h3 class="item-title">Rainfall Data Engineering</h3>
+        <div class="project-links">
+          <a href="https://github.com/DeepakReddy02/Rainfall-Data-Engineering" target="_blank" class="project-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="item-description">
+          Built an end-to-end Databricks pipeline to ingest district-level rainfall data from a public REST API using PySpark, storing 5+ years of daily records for 700+ districts in Parquet. Implemented Medallion architecture (Bronze → Silver → Gold) with schema enforcement, deduplication, and fact/dimension tables for analytics-ready datasets.
+        </p>
+      </div>
+
       <!-- Skills -->
       <div class="bento-item span-6" id="skills">
         <h2 class="item-title">Skills</h2>
         <div class="skills-grid">
           <div class="skill-category">
-            <h4>Programming & Databases</h4>
+            <h4>Languages & Query</h4>
             <div class="skill-tags">
-              <span class="skill-tag">Python</span>
               <span class="skill-tag">SQL</span>
-              <span class="skill-tag">Neo4j</span>
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Cypher</span>
+              <span class="skill-tag">DAX</span>
+              <span class="skill-tag">M-Query</span>
+              <span class="skill-tag">Advanced Excel</span>
             </div>
           </div>
           <div class="skill-category">
-            <h4>Data Analysis & Visualization</h4>
+            <h4>Tools & Platforms</h4>
             <div class="skill-tags">
               <span class="skill-tag">Power BI</span>
               <span class="skill-tag">Grafana</span>
-              <span class="skill-tag">Pandas</span>
-              <span class="skill-tag">PySpark</span>
-              <span class="skill-tag">Matplotlib</span>
-              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Databricks</span>
+              <span class="skill-tag">Microsoft Excel</span>
             </div>
           </div>
           <div class="skill-category">
-            <h4>Analytics & BI</h4>
+            <h4>Databases</h4>
             <div class="skill-tags">
-              <span class="skill-tag">ETL Processes</span>
-              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">Neo4j</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">SQL Server</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Cloud Technologies</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">GCP BigQuery</span>
+              <span class="skill-tag">GCP Looker</span>
+              <span class="skill-tag">Cloud Storage</span>
+              <span class="skill-tag">AWS Athena</span>
+              <span class="skill-tag">AWS S3</span>
+              <span class="skill-tag">AWS EMR</span>
+              <span class="skill-tag">AWS Redshift</span>
+              <span class="skill-tag">AWS QuickSight</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Libraries & Frameworks</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">Seaborn</span>
+              <span class="skill-tag">PySpark</span>
+              <span class="skill-tag">Numpy</span>
+              <span class="skill-tag">APOC</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Analytics & Business</h4>
+            <div class="skill-tags">
               <span class="skill-tag">Dashboard Development</span>
+              <span class="skill-tag">Data Cleaning</span>
+              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag">Data Manipulation</span>
+              <span class="skill-tag">Data Profiling</span>
+              <span class="skill-tag">A/B Testing</span>
+              <span class="skill-tag">Stakeholder Communication</span>
               <span class="skill-tag">Statistical Analysis</span>
+              <span class="skill-tag">Cross-functional Collaboration</span>
+              <span class="skill-tag">Prompt Engineering</span>
             </div>
           </div>
         </div>
