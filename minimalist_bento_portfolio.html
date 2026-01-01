@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepak Reddy - Data Analyst</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #151515;
+      --text: #e5e5e5;
+      --text-secondary: #a0a0a0;
+      --accent: #3b82f6;
+      --secondary-section: #1a1a1a;
+      --border: #262626;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 70px;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      align-items: center;
+    }
+
+    .nav-menu li {
+      margin: 0;
+    }
+
+    .nav-menu a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .nav-menu a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 3rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      min-height: 1.8rem;
+      position: relative;
+      background: linear-gradient(90deg, var(--text-secondary) 0%, var(--accent) 50%, var(--text-secondary) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 6s linear infinite;
+    }
+
+    .tagline-char {
+      display: inline-block;
+      opacity: 0;
+      animation: charReveal 0.05s ease-out forwards;
+    }
+
+    @keyframes charReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% auto;
+      }
+      100% {
+        background-position: 200% auto;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+      background: #0056b3;
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: var(--secondary-section);
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .bento-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-item:hover {
+      box-shadow: 0 8px 24px var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    /* Grid Sizes */
+    .span-12 { grid-column: span 12; }
+    .span-8 { grid-column: span 8; }
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .span-3 { grid-column: span 3; }
+
+    /* Item Styles */
+    .item-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .item-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .item-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* About Section */
+    .about-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    /* Experience Section */
+    .experience-list {
+      list-style: none;
+    }
+
+    .experience-list li {
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .experience-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Projects */
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      color: var(--text);
+      font-size: 1.25rem;
+      transition: all 0.2s;
+      opacity: 0.6;
+    }
+
+    .project-link:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .skill-category h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-tag {
+      background: linear-gradient(135deg, var(--secondary-section) 0%, #222222 100%);
+      padding: 0.65rem 1.25rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .skill-tag::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+      border-radius: 25px;
+    }
+
+    .skill-tag:hover {
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .skill-tag:hover::before {
+      left: 0;
+    }
+
+    .skill-tag:active {
+      transform: translateY(-1px);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .contact-item:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .contact-icon {
+      font-size: 1.25rem;
+      opacity: 0.7;
+    }
+
+    /* Certifications */
+    .cert-list {
+      list-style: none;
+    }
+
+    .cert-list li {
+      margin-bottom: 0.75rem;
+    }
+
+    .cert-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .cert-list a:hover {
+      opacity: 0.7;
+    }
+
+    /* Accent Item */
+    .accent-item {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+      color: var(--text);
+      border: 1px solid #2a2a2a;
+    }
+
+    .accent-item .item-title,
+    .accent-item .item-description {
+      color: var(--text);
+    }
+
+    .accent-item .contact-item {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .accent-item .contact-item:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .span-8 { grid-column: span 12; }
+      .span-6 { grid-column: span 12; }
+      .span-4 { grid-column: span 6; }
+      .span-3 { grid-column: span 6; }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 60px;
+      }
+
+      .navbar {
+        height: 60px;
+        padding: 0 1rem;
+        flex-wrap: wrap;
+      }
+
+      .navbar-brand {
+        font-size: 1.25rem;
+      }
+
+      .nav-menu {
+        gap: 0;
+      }
+
+      .nav-menu a {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .name {
+        font-size: 2rem;
+      }
+
+      .bento-grid {
+        gap: 1rem;
+      }
+
+      .span-4,
+      .span-3 {
+        grid-column: span 12;
+      }
+
+      .bento-item {
+        padding: 1.5rem;
+      }
+
+      .header-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">Deepak Reddy</div>
+    <ul class="nav-menu">
+      <li><a href="#about" class="nav-link active" onclick="setActiveNav(this)">About</a></li>
+      <li><a href="#experience" class="nav-link" onclick="setActiveNav(this)">Experience</a></li>
+      <li><a href="#projects" class="nav-link" onclick="setActiveNav(this)">Projects</a></li>
+      <li><a href="#skills" class="nav-link" onclick="setActiveNav(this)">Skills</a></li>
+      <li><a href="#education" class="nav-link" onclick="setActiveNav(this)">Education</a></li>
+      <li><a href="#contact" class="nav-link" onclick="setActiveNav(this)">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="name">Deepak Reddy</h1>
+      <p class="tagline" id="tagline">Data Analyst • Business Intelligence • Data Visualization</p>
+      <div class="header-actions">
+        <a href="Assets/Deepak_Reddy_DataAnalyst_Resume.pdf" target="_blank" class="btn btn-primary">
+          <i class="fas fa-download"></i>
+          Resume
+        </a>
+      </div>
+    </header>
+
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+      
+      <!-- About -->
+      <div class="bento-item span-12" id="about">
+        <h2 class="item-title">About</h2>
+        <p class="item-description about-content">
+          Data Analyst with 3 years of experience building scalable data solutions, optimizing SQL queries, that improve business outcomes. Skilled in SQL, Python, PySpark, Power BI, and cloud platforms (AWS, GCP). Proven track record of cutting ETL runtimes by 40% and reducing manual reporting by 40%. Experienced in dashboard development and KPI tracking support decision-making. Certified in Power BI, Neo4j, with a strong focus on process efficiency, and continuous learning.
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div class="bento-item span-12" id="experience">
+        <h2 class="item-title">Experience</h2>
+        <div class="item-subtitle">Data Analyst • Cognizant Technology Solutions • Aug 2022 - Present</div>
+        <ul class="experience-list">
+          <li>Applied data analysis techniques to extract and analyze data from various sources, identifying key trends and providing insights that led to a 14% improvement in process efficiency</li>
+          <li>Utilized advanced data analysis techniques to extract and analyze structured and semi-structured data from multiple sources (CSV, JSON, REST APIs), uncovering key trends that drove a 14% increase in process efficiency.</li>
+          <li>Designed and deployed interactive dashboards using Grafana and Power BI, enabling real-time KPI monitoring and reducing manual reporting workload by 40% through automation.</li>
+          <li>Streamlined ETL workflows for data extraction, transformation, and loading using Python (Pandas), reducing data processing time by 40% while enhancing data consistency and reliability.</li>
+          <li>Optimized SQL queries with CTE(Common Table expression) to generate weekly product engagement KPIs, reducing runtime from 1 hour to 20 minutes.</li>
+          <li>Led the end-to-end lifecycle of software quality metric reporting , integrating Neo4j, SQL for based analysis and Power BI for visualization, contributing to a 15% acceleration in project delivery timelines.</li>
+        </ul>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="bento-item span-4" id="projects">
+        <h3 class="item-title">Yelp Analytics</h3>
+        <div class="project-links">
+          <a href="https://www.kaggle.com/code/adr2001/yelp-data-analysis" target="_blank" class="project-link">
+            <i class="fab fa-kaggle"></i>
+          </a>
+          <a href="https://github.com/DeepakReddy02/Yelp-data-Analytics" target="_blank" class="project-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="item-description">
+          Engineered PySpark pipelines for 1M+ records. Conducted market analysis across 50+ cities, identifying 12 underserved markets. Reduced processing time by 60%.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bento-item span-4">
+        <h3 class="item-title">CRM Analytics</h3>
+        <div class="project-links">
+          <a href="https://github.com/DeepakReddy02/CRM-Data-analytics" target="_blank" class="project-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="item-description">
+          Analyzed 8,800+ sales opportunities using advanced SQL. Developed comprehensive sales performance metrics and cross-sell effectiveness matrices.
+        </p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bento-item span-4">
+        <h3 class="item-title">Formula 1 Dashboard</h3>
+        <div class="project-links">
+          <a href="https://github.com/DeepakReddy02/Formula-1-Dashboard" target="_blank" class="project-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <p class="item-description">
+          Developed interactive F1 dashboard with 15+ KPI visualizations. Reduced report generation time by 30%.
+        </p>
+      </div>
+
+      <!-- Skills -->
+      <div class="bento-item span-6" id="skills">
+        <h2 class="item-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Programming & Databases</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Neo4j</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Data Analysis & Visualization</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Grafana</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">PySpark</span>
+              <span class="skill-tag">Matplotlib</span>
+              <span class="skill-tag">Excel</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Analytics & BI</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">ETL Processes</span>
+              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag">Dashboard Development</span>
+              <span class="skill-tag">Statistical Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Certifications -->
+      <div class="bento-item span-6" id="education">
+        <h2 class="item-title">Education</h2>
+        <div class="item-subtitle">Bachelor's in Information Technology</div>
+        <p class="item-description" style="margin-bottom: 2rem;">Velammal Institute of Technology • 2022</p>
+        
+        <h3 class="item-title" style="font-size: 1.25rem;">Certifications</h3>
+        <ul class="cert-list">
+          <li><a href="https://learn.microsoft.com/en-us/users/deepakreddy-7486/credentials/6c7aa562362c20fa" target="_blank">Microsoft Power BI Data Analyst (PL-300)</a></li>
+          <li><a href="https://graphacademy.neo4j.com/c/1edc7d7e-53f9-4a32-aede-22fb9f663efd/" target="_blank">Neo4j Certified Professional</a></li>
+          <li><a href="Assets/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">AWS Cloud Practitioner (CLF-C01)</a></li>
+          <li><a href="https://learn.microsoft.com/api/credentials/share/en-us/DEEPAKREDDY-7486/A54F7993C13CFE65?sharingId=EFF0362C7ED97661" target="_blank">Azure Data Fundamentals (DP-900)</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="bento-item span-12 accent-item" id="contact">
+        <h2 class="item-title">Let's Connect</h2>
+        <p class="item-description" style="margin-bottom: 1.5rem;">
+          Interested in data-driven insights and collaboration? Feel free to reach out.
+        </p>
+        <div class="contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+          <a href="mailto:adr022001@gmail.com" class="contact-item">
+            <i class="contact-icon fas fa-envelope"></i>
+            <span>adr022001@gmail.com</span>
+          </a>
+          <a href="tel:+916382625126" class="contact-item">
+            <i class="contact-icon fas fa-phone"></i>
+            <span>+91 6382625126</span>
+          </a>
+          <a href="https://www.linkedin.com/in/deepak-reddy-data-analyst/" target="_blank" class="contact-item">
+            <i class="contact-icon fab fa-linkedin"></i>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Tagline character reveal animation
+    function animateTagline() {
+      const tagline = document.getElementById('tagline');
+      const text = tagline.textContent;
+      tagline.textContent = '';
+      
+      let delay = 0;
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const span = document.createElement('span');
+        span.className = 'tagline-char';
+        span.textContent = char;
+        span.style.animationDelay = `${delay}ms`;
+        tagline.appendChild(span);
+        
+        // Add stagger effect, slower for punctuation
+        delay += char === '•' ? 100 : 30;
+      }
+    }
+
+    // Run animation on page load
+    window.addEventListener('load', () => {
+      setTimeout(animateTagline, 300);
+    });
+
+    function setActiveNav(element) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      element.classList.add('active');
+    }
+  </script>
+</body>
+</html>
