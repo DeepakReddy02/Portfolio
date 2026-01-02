@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deepak Reddy - Data Analyst</title>
+  <meta name="description"
+    content="Deepak Reddy - Data Analyst portfolio showcasing data visualization, BI dashboarding, and SQL optimization projects.">
+  <meta name="keywords" content="Data Analyst, Portfolio, Deepak Reddy, Power BI, SQL, Python, Business Intelligence">
+  <meta name="author" content="Deepak Reddy">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Deepak Reddy - Data Analyst Portfolio">
+  <meta property="og:description"
+    content="Data Analyst with 3 years of experience building scalable data solutions. Check out my projects and skills.">
+  <meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Deepak Reddy - Data Analyst Portfolio">
+  <meta property="twitter:description"
+    content="Data Analyst with 3 years of experience building scalable data solutions. Check out my projects and skills.">
+  <meta property="twitter:image" content="https://yourwebsite.com/og-image.jpg">
+
+  <title>Deepak Reddy - Data Analyst Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -13,23 +36,36 @@
     }
 
     :root {
-      --bg: #0a0805;
-      --surface: #1a1410;
-      --text: #e5e5e5;
-      --text-secondary: #a0a0a0;
+      --bg: #030405;
+      /* Deeper black */
+      --surface: rgba(26, 20, 16, 0.7);
+      /* Translucent for glassmorphism */
+      --text: #ffffff;
+      --text-secondary: #9da3ae;
       --accent: #f97316;
       --accent-secondary: #10b981;
-      --secondary-section: #221510;
-      --border: #2a1f18;
-      --shadow: rgba(0, 0, 0, 0.5);
+      --secondary-section: #111827;
+      --border: rgba(255, 255, 255, 0.08);
+      /* Sophisticated thin border */
+      --shadow: rgba(0, 0, 0, 0.8);
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--bg);
+      background-image:
+        radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(249, 115, 22, 0.05) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
       padding-top: 70px;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Top Navbar */
@@ -100,10 +136,14 @@
     }
 
     .name {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .tagline {
@@ -131,6 +171,7 @@
         opacity: 0;
         transform: translateY(10px);
       }
+
       100% {
         opacity: 1;
         transform: translateY(0);
@@ -141,6 +182,7 @@
       0% {
         background-position: -200% auto;
       }
+
       100% {
         background-position: 200% auto;
       }
@@ -207,12 +249,16 @@
 
     .bento-item {
       background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 20px;
+      /* Slightly rounder */
       padding: 2rem;
-      transition: all 0.3s;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
     }
 
     .bento-item::before {
@@ -256,11 +302,29 @@
     }
 
     /* Grid Sizes */
-    .span-12 { grid-column: span 12; }
-    .span-8 { grid-column: span 8; }
-    .span-6 { grid-column: span 6; }
-    .span-4 { grid-column: span 4; }
-    .span-3 { grid-column: span 3; }
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-3 {
+      grid-column: span 3;
+    }
+
+    .row-span-2 {
+      grid-row: span 2;
+    }
 
     /* Item Styles */
     .item-title {
@@ -491,10 +555,21 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .span-8 { grid-column: span 12; }
-      .span-6 { grid-column: span 12; }
-      .span-4 { grid-column: span 6; }
-      .span-3 { grid-column: span 6; }
+      .span-8 {
+        grid-column: span 12;
+      }
+
+      .span-6 {
+        grid-column: span 12;
+      }
+
+      .span-4 {
+        grid-column: span 6;
+      }
+
+      .span-3 {
+        grid-column: span 6;
+      }
     }
 
     @media (max-width: 768px) {
@@ -553,6 +628,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Top Navbar -->
   <nav class="navbar">
@@ -573,7 +649,8 @@
       <h1 class="name">Deepak Reddy</h1>
       <p class="tagline">Data Analyst • Business Intelligence • Data Visualization</p>
       <div class="header-actions">
-        <a href="Assets/Deepak_Reddy_DataAnalyst_Resume.pdf" target="_blank" class="btn btn-primary">
+        <a href="Assets/Deepak_Reddy_DataAnalyst_Resume.pdf" target="_blank" class="btn btn-primary"
+          aria-label="Download Deepak Reddy's Resume">
           <i class="fas fa-download"></i>
           Resume
         </a>
@@ -582,12 +659,16 @@
 
     <!-- Bento Grid -->
     <div class="bento-grid">
-      
+
       <!-- About -->
       <div class="bento-item span-12" id="about">
         <h2 class="item-title">About</h2>
         <p class="item-description about-content">
-          Data Analyst with 3 years of experience building scalable data solutions, optimizing SQL queries that improve business outcomes. Skilled in SQL, Python, PySpark, Power BI, and cloud platforms (AWS, GCP). Proven track record of cutting ETL runtimes by 40% and reducing manual reporting by 40%. Experienced in dashboard development and KPI tracking to support decision-making. Certified in Power BI and Neo4j, with a strong focus on process efficiency and continuous learning.
+          Data Analyst with 3 years of experience building scalable data solutions, optimizing SQL queries that improve
+          business outcomes. Skilled in SQL, Python, PySpark, Power BI, and cloud platforms (AWS, GCP). Proven track
+          record of cutting ETL runtimes by 40% and reducing manual reporting by 40%. Experienced in dashboard
+          development and KPI tracking to support decision-making. Certified in Power BI and Neo4j, with a strong focus
+          on process efficiency and continuous learning.
         </p>
       </div>
 
@@ -596,11 +677,16 @@
         <h2 class="item-title">Experience</h2>
         <div class="item-subtitle">Data Analyst • Cognizant Technology Solutions • Aug 2022 - Present</div>
         <ul class="experience-list">
-          <li>Designed and deployed interactive dashboards using Grafana and Power BI, enabling real-time KPI monitoring and reducing manual reporting workload by 40% through automation.</li>
-          <li>Streamlined ETL workflows for data extraction, transformation, and loading using Python (Pandas), reducing data processing time by 40% while enhancing data consistency and reliability.</li>
-          <li>Mentored a junior analyst on Python automation and Power BI best practices, reducing their ramp-up time by 50% and establishing team coding standards.</li>
-          <li>Optimized SQL queries with CTE (Common Table Expression) to generate weekly product engagement KPIs, reducing runtime from 1 hour to 20 minutes.</li>
-          <li>Led the end-to-end lifecycle of software quality metric reporting, integrating Neo4j and SQL for analysis and Power BI for visualization, contributing to a 15% acceleration in project delivery timelines.</li>
+          <li>Designed and deployed interactive dashboards using Grafana and Power BI, enabling real-time KPI monitoring
+            and reducing manual reporting workload by 40% through automation.</li>
+          <li>Streamlined ETL workflows for data extraction, transformation, and loading using Python (Pandas), reducing
+            data processing time by 40% while enhancing data consistency and reliability.</li>
+          <li>Mentored a junior analyst on Python automation and Power BI best practices, reducing their ramp-up time by
+            50% and establishing team coding standards.</li>
+          <li>Optimized SQL queries with CTE (Common Table Expression) to generate weekly product engagement KPIs,
+            reducing runtime from 1 hour to 20 minutes.</li>
+          <li>Led the end-to-end lifecycle of software quality metric reporting, integrating Neo4j and SQL for analysis
+            and Power BI for visualization, contributing to a 15% acceleration in project delivery timelines.</li>
           <li>Improved release lead time by 12%, which directly reduced downtime risk and improved user experience.</li>
         </ul>
       </div>
@@ -609,15 +695,18 @@
       <div class="bento-item span-4" id="projects">
         <h3 class="item-title">Yelp Analytics</h3>
         <div class="project-links">
-          <a href="https://www.kaggle.com/code/adr2001/yelp-data-analysis" target="_blank" class="project-link">
+          <a href="https://www.kaggle.com/code/adr2001/yelp-data-analysis" target="_blank" class="project-link"
+            aria-label="View Yelp Analytics on Kaggle">
             <i class="fab fa-kaggle"></i>
           </a>
-          <a href="https://github.com/DeepakReddy02/Yelp-data-Analytics" target="_blank" class="project-link">
+          <a href="https://github.com/DeepakReddy02/Yelp-data-Analytics" target="_blank" class="project-link"
+            aria-label="View Yelp Analytics on GitHub">
             <i class="fab fa-github"></i>
           </a>
         </div>
         <p class="item-description">
-          Engineered PySpark pipelines for 1M+ records. Conducted market analysis across 50+ cities, identifying 12 underserved markets. Reduced processing time by 60%.
+          Engineered PySpark pipelines for 1M+ records. Conducted market analysis across 50+ cities, identifying 12
+          underserved markets. Reduced processing time by 60%.
         </p>
       </div>
 
@@ -625,12 +714,14 @@
       <div class="bento-item span-4">
         <h3 class="item-title">CRM Analytics</h3>
         <div class="project-links">
-          <a href="https://github.com/DeepakReddy02/CRM-Data-analytics" target="_blank" class="project-link">
+          <a href="https://github.com/DeepakReddy02/CRM-Data-analytics" target="_blank" class="project-link"
+            aria-label="View CRM Analytics on GitHub">
             <i class="fab fa-github"></i>
           </a>
         </div>
         <p class="item-description">
-          Analyzed 8,800+ sales opportunities using advanced SQL. Developed comprehensive sales performance metrics and cross-sell effectiveness matrices.
+          Analyzed 8,800+ sales opportunities using advanced SQL. Developed comprehensive sales performance metrics and
+          cross-sell effectiveness matrices.
         </p>
       </div>
 
@@ -638,7 +729,8 @@
       <div class="bento-item span-4">
         <h3 class="item-title">Formula 1 Dashboard</h3>
         <div class="project-links">
-          <a href="https://github.com/DeepakReddy02/Formula-1-Dashboard" target="_blank" class="project-link">
+          <a href="https://github.com/DeepakReddy02/Formula-1-Dashboard" target="_blank" class="project-link"
+            aria-label="View Formula 1 Dashboard on GitHub">
             <i class="fab fa-github"></i>
           </a>
         </div>
@@ -656,7 +748,9 @@
           </a>
         </div>
         <p class="item-description">
-          Analyzed 12.8M records using PySpark, optimizing query performance and reducing processing time by 60%. Applied RFM segmentation and CLV calculation to identify high-value and at-risk customers — top 20% of users generated over 60% of total revenue.
+          Analyzed 12.8M records using PySpark, optimizing query performance and reducing processing time by 60%.
+          Applied RFM segmentation and CLV calculation to identify high-value and at-risk customers — top 20% of users
+          generated over 60% of total revenue.
         </p>
       </div>
 
@@ -669,12 +763,15 @@
           </a>
         </div>
         <p class="item-description">
-          Built an end-to-end Databricks pipeline to ingest district-level rainfall data from a public REST API using PySpark, storing 5+ years of daily records for 700+ districts in Parquet. Implemented Medallion architecture (Bronze → Silver → Gold) with schema enforcement, deduplication, and fact/dimension tables for analytics-ready datasets.
+          Built an end-to-end Databricks pipeline to ingest district-level rainfall data from a public REST API using
+          PySpark, storing 5+ years of daily records for 700+ districts in Parquet. Implemented Medallion architecture
+          (Bronze → Silver → Gold) with schema enforcement, deduplication, and fact/dimension tables for analytics-ready
+          datasets.
         </p>
       </div>
 
       <!-- Skills -->
-      <div class="bento-item span-6" id="skills">
+      <div class="bento-item span-8 row-span-2" id="skills">
         <h2 class="item-title">Skills</h2>
         <div class="skills-grid">
           <div class="skill-category">
@@ -750,41 +847,52 @@
       </div>
 
       <!-- Education & Certifications -->
-      <div class="bento-item span-6" id="education">
+      <div class="bento-item span-4" id="education">
         <h2 class="item-title">Education</h2>
         <div class="item-subtitle">Bachelor's in Information Technology</div>
         <p class="item-description" style="margin-bottom: 2rem;">Velammal Institute of Technology • 2022</p>
-        
+
         <h3 class="item-title" style="font-size: 1.25rem;">Certifications</h3>
         <ul class="cert-list">
-          <li><a href="https://learn.microsoft.com/en-us/users/deepakreddy-7486/credentials/6c7aa562362c20fa" target="_blank">Microsoft Power BI Data Analyst (PL-300)</a></li>
-          <li><a href="https://graphacademy.neo4j.com/c/1edc7d7e-53f9-4a32-aede-22fb9f663efd/" target="_blank">Neo4j Certified Professional</a></li>
-          <li><a href="Assets/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">AWS Cloud Practitioner (CLF-C01)</a></li>
-          <li><a href="https://learn.microsoft.com/api/credentials/share/en-us/DEEPAKREDDY-7486/A54F7993C13CFE65?sharingId=EFF0362C7ED97661" target="_blank">Azure Data Fundamentals (DP-900)</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/users/deepakreddy-7486/credentials/6c7aa562362c20fa"
+              target="_blank">Microsoft Power BI Data Analyst (PL-300)</a></li>
+          <li><a href="https://graphacademy.neo4j.com/c/1edc7d7e-53f9-4a32-aede-22fb9f663efd/" target="_blank">Neo4j
+              Certified Professional</a></li>
+          <li><a href="Assets/AWS Certified Cloud Practitioner certificate.pdf" target="_blank">AWS Cloud Practitioner
+              (CLF-C01)</a></li>
+          <li><a
+              href="https://learn.microsoft.com/api/credentials/share/en-us/DEEPAKREDDY-7486/A54F7993C13CFE65?sharingId=EFF0362C7ED97661"
+              target="_blank">Azure Data Fundamentals (DP-900)</a></li>
         </ul>
+        <h3 class="skill-category h4" style="margin-top: 2rem; margin-bottom: 1rem;">Tech Interests</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Large Language Models</span>
+          <span class="skill-tag">Predictive Analytics</span>
+          <span class="skill-tag">Gen AI Development</span>
+        </div>
       </div>
 
       <!-- Contact -->
-      <div class="bento-item span-12 accent-item" id="contact">
+      <div class="bento-item span-4 accent-item" id="contact">
         <h2 class="item-title">Let's Connect</h2>
-        <p class="item-description" style="margin-bottom: 1.5rem;">
-          Interested in data-driven insights and collaboration? Feel free to reach out.
-        </p>
-        <div class="contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-          <a href="mailto:adr022001@gmail.com" class="contact-item">
+        <div class="contact-grid" style="display: flex; flex-direction: column; gap: 1rem;">
+          <a href="mailto:adr022001@gmail.com" class="contact-item" aria-label="Email Deepak Reddy">
             <i class="contact-icon fas fa-envelope"></i>
             <span>adr022001@gmail.com</span>
           </a>
-          <a href="tel:+916382625126" class="contact-item">
+          <a href="tel:+916382625126" class="contact-item" aria-label="Call Deepak Reddy">
             <i class="contact-icon fas fa-phone"></i>
             <span>+91 6382625126</span>
           </a>
-          <a href="https://www.linkedin.com/in/deepak-reddy-data-analyst/" target="_blank" class="contact-item">
+          <a href="https://www.linkedin.com/in/deepak-reddy-data-analyst/" target="_blank" class="contact-item"
+            aria-label="Deepak Reddy's LinkedIn Profile">
             <i class="contact-icon fab fa-linkedin"></i>
             <span>LinkedIn Profile</span>
           </a>
         </div>
       </div>
+
+
 
     </div>
   </div>
@@ -795,7 +903,7 @@
       const tagline = document.getElementById('tagline');
       const text = tagline.textContent;
       tagline.textContent = '';
-      
+
       let delay = 0;
       for (let i = 0; i < text.length; i++) {
         const char = text[i];
@@ -804,7 +912,7 @@
         span.textContent = char;
         span.style.animationDelay = `${delay}ms`;
         tagline.appendChild(span);
-        
+
         // Add stagger effect, slower for punctuation
         delay += char === '•' ? 100 : 30;
       }
@@ -821,6 +929,35 @@
       });
       element.classList.add('active');
     }
+
+    // Intersection Observer for active nav
+    const sections = document.querySelectorAll('.bento-item[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
+
 </html>
