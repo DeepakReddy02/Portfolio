@@ -66,6 +66,31 @@
       padding-top: 70px;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 10px;
+      border: 2px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
     }
 
     /* Top Navbar */
@@ -480,6 +505,8 @@
     .contact-item:hover {
       background: var(--accent);
       color: white;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 5px 15px rgba(249, 115, 22, 0.3);
     }
 
     .contact-icon {
@@ -625,6 +652,64 @@
       .container {
         padding: 0 1rem;
       }
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.4);
+      z-index: 10000;
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 45px;
+      height: 45px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-5px);
     }
   </style>
 </head>
@@ -876,11 +961,13 @@
       <div class="bento-item span-4 accent-item" id="contact">
         <h2 class="item-title">Let's Connect</h2>
         <div class="contact-grid" style="display: flex; flex-direction: column; gap: 1rem;">
-          <a href="mailto:adr022001@gmail.com" class="contact-item" aria-label="Email Deepak Reddy">
+          <a href="mailto:adr022001@gmail.com" class="contact-item" aria-label="Email Deepak Reddy"
+            onclick="copyToClipboard('adr022001@gmail.com', 'Email copied!')">
             <i class="contact-icon fas fa-envelope"></i>
             <span>adr022001@gmail.com</span>
           </a>
-          <a href="tel:+916382625126" class="contact-item" aria-label="Call Deepak Reddy">
+          <a href="tel:+916382625126" class="contact-item" aria-label="Call Deepak Reddy"
+            onclick="copyToClipboard('+91 6382625126', 'Phone number copied!')">
             <i class="contact-icon fas fa-phone"></i>
             <span>+91 6382625126</span>
           </a>
@@ -895,6 +982,15 @@
 
 
     </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <div id="back-to-top" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-chevron-up"></i>
   </div>
 
   <script>
@@ -918,9 +1014,39 @@
       }
     }
 
-    // Run animation on page load
+    // Run animation and reveal page on load
     window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
       setTimeout(animateTagline, 300);
+    });
+
+    // Toast Notification logic
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Click to copy functionality
+    function copyToClipboard(text, successMsg) {
+      event.preventDefault();
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(successMsg);
+      });
+    }
+
+    // Back to top visibility
+    window.addEventListener('scroll', () => {
+      const backToTop = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
     });
 
     function setActiveNav(element) {
